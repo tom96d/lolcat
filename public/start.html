@@ -46,7 +46,7 @@ term.on("key", (key, ev) => {
   	!ev.ctrlKey && !ev.metaKey;
 
   if (ev.keyCode === 13) { // ENTER
-    const result = my.eval(buf);
+    const result = my.eval(buff);
     term.writeln('');
     term.writeln(result);
     term.prompt();
