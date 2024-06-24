@@ -20,9 +20,13 @@ var buff = '';
 term.prompt = () => {
   term.write("\r\n$ ");
 };
-`Welcome to the xterm.js demo!
-
-`
+`#==========================================================#
+# Welcome to the xterm.js demo!                            #
+# Tom96d welcomes you with an lolcat =(^w^)=               #
+# what you type is eval-uated in the js browser session.   #
+#==========================================================#
+`.split("\n")
+  .map(line => term.writeln(line));
 
 var my = {
   eval(txt) {
@@ -36,8 +40,6 @@ var my = {
 
 }
 
-.split("\n")
-  .map(line => term.writeln(line));
 term.prompt();
 term.on("key", (key, ev) => {
   const printable = !ev.altKey && !ev.altGraphKey && 
