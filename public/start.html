@@ -1,0 +1,74 @@
+<html>
+<head>
+
+<link rel="stylesheet" href="./css/xterm.css">
+</head>
+
+
+<body>
+<div id="terminal"></div>
+
+
+<script src="./js/xterm.js"></script>
+
+<script> 
+const term = new Terminal();
+term.open(document.getElementById('terminal'));
+
+var buff = '';
+
+term.prompt = () => {
+  term.write("\r\n$ ");
+};
+`Welcome to the xterm.js demo!
+
+`
+
+var my = {
+  eval(txt) {
+    try {
+      return eval(text);
+    }
+    catch(e) {
+      return e;
+    }
+  }
+
+}
+
+.split("\n")
+  .map(line => term.writeln(line));
+term.prompt();
+term.on("key", (key, ev) => {
+  const printable = !ev.altKey && !ev.altGraphKey && 
+  	!ev.ctrlKey && !ev.metaKey;
+
+  if (ev.keyCode === 13) { // ENTER
+    const result = my.eval(buf);
+    term.writeln('');
+    term.writeln(result);
+    term.prompt();
+    buff = '';
+  } else if (ev.keyCode === 8) { // BACKSPACE??
+    // Do not delete the prompts
+    buff = buff.slice(0, -1);
+    if (term.buffer.cursorX > 2) {
+      term.write("\b \b");
+    }
+  } else if (printable) {
+    buff += key;
+    term.write(key);
+  }
+});
+
+term.on("paste", function(data) {
+  term.write(data);
+});
+
+
+</script>
+
+</body>
+ 
+</html>
+
