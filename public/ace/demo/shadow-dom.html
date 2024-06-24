@@ -35,10 +35,9 @@
 
 <ace-playground></ace-playground>
 
-<script src="kitchen-sink/require.js"></script>
+<!-- load ace -->
+<script src="../src/ace.js"></script>
 <script>
-require.config({paths: { "ace" : "../src"}});
-require(["ace/ace"], function(ace) {
 
 var dom = require("ace/lib/dom");
 
@@ -116,11 +115,7 @@ window.add = function() {
     var el = document.createElement("ace-playground");    
     document.body.appendChild(el);
 };
-
-});
 </script>
-
-<script src="./show_own_source.js"></script>
 
 </body>
 </html>

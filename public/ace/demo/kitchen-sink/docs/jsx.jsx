@@ -1,9 +1,9 @@
-import * as React from "react";
-
-export default () => {
-  return (
-    <div variant="p">
-      Keywords here are not highlighted, for example class or instance.
-    </div>
-  );
+/*EXPECTED
+hello world!
+*/
+class Test {
+    static function run() : void {
+        // console.log("hello world!");
+        log "hello world!";
+    }
 }
