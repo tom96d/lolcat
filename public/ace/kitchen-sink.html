@@ -55,10 +55,10 @@
     var useLib = /lib=1/.test(location.search);
     var paths = useLib ? {
       ace: "ace/lib/ace",
-      demo: "demo/kitchen-sink"
+      demo: "ace/demo/kitchen-sink"
     } : {
-      ace: "src",
-      demo: "./demo/kitchen-sink",
+      ace: "ace/src",
+      demo: "ace/demo/kitchen-sink",
       "ace/worker/worker_client": "ace/lib/ace/worker/worker_client_v2",
       "ace/worker": "ace/lib/ace/worker",
     };
