@@ -17,7 +17,7 @@
     <div></div><div></div><div></div>
   </div>
   <a href="https://c9.io">
-    <img id="c9-logo" alt="Cloud9 IDE | Your code anywhere, anytime" src="demo/kitchen-sink/logo.png" style="width: 172px;margin: -9px 30px -12px 51px;">
+    <img id="c9-logo" alt="Cloud9 IDE | Your code anywhere, anytime" src="./demo/kitchen-sink/logo.png" style="width: 172px;margin: -9px 30px -12px 51px;">
   </a>
   <div style="position: absolute; overflow: hidden; top:100px; bottom:0">
   <div id="optionsPanel" style="width: 120%; height:100%; overflow-y: scroll">
@@ -54,13 +54,13 @@
   <script>
     var useLib = /lib=1/.test(location.search);
     var paths = useLib ? {
-      ace: "lib/ace",
+      ace: "ace/lib/ace",
       demo: "demo/kitchen-sink"
     } : {
       ace: "src",
       demo: "./demo/kitchen-sink",
-      "ace/worker/worker_client": "./lib/ace/worker/worker_client_v2",
-      "ace/worker": "./lib/ace/worker",
+      "ace/worker/worker_client": "ace/lib/ace/worker/worker_client_v2",
+      "ace/worker": "ace/lib/ace/worker",
     };
     
     if (!useLib) {
@@ -92,7 +92,7 @@
         "javascript/jshint",
         "html_worker",
       ].forEach(function(m) {
-        paths["ace/mode/" + m] = "./lib/ace/mode/" + m
+        paths["ace/mode/" + m] = "ace/lib/ace/mode/" + m
       })
     }
     
@@ -100,7 +100,7 @@
         paths: paths
     });
     require(["ace/ace"], function (ace) {
-        require(["./demo/demo.js"], function (demo) {
+        require(["ace/demo/demo.js"], function (demo) {
         });
     });
   </script>
